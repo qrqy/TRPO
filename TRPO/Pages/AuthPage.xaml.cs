@@ -74,7 +74,7 @@ namespace TRPO.Pages
         private void ShowPasswordFunction()
         {
             ShowPassword.Text = "Скрыть пароль";
-            //dockPanel.Visibility = Visibility.Visible;
+            PasswordUnmask.Visibility = Visibility.Visible;
             Password.Visibility = Visibility.Hidden;
             PasswordUnmask.Text = Password.Password;
 
@@ -83,7 +83,7 @@ namespace TRPO.Pages
         private void HidePasswordFunction()
         {
             ShowPassword.Text = "Показать пароль";
-            //dockPanel.Visibility = Visibility.Hidden;
+            PasswordUnmask.Visibility = Visibility.Hidden;
             Password.Visibility = Visibility.Visible;
 
         }
