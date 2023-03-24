@@ -25,6 +25,10 @@ namespace TRPO.Pages
         {
             StackPanel stackPanel = new StackPanel(); //Создание StackPanel для продукта
             stackPanel.Orientation = Orientation.Horizontal; //Ориаентация элементов StackPanel горизонтальная
+            TextBlock ID = new TextBlock();
+            ID.Text = product.product_id.ToString();
+            ID.Width = 30;
+            stackPanel.Children.Add(ID);
             TextBlock name = new TextBlock(); //Создаем текстовое поле для имени файла
             name.Name = "id" + product.product_id;
             name.Width = 250; //Ставим ширину текстового поля
@@ -33,7 +37,12 @@ namespace TRPO.Pages
             stackPanel.Children.Add(name); //Добавляем элемент имени
             TextBlock count = new TextBlock(); //Создаем текстовое поле для кол-ва товаров
             count.Text = product.count.ToString();  //Число товаров
+            count.Width= 30;
             stackPanel.Children.Add(count); //Добавляем сразу кол-во
+            TextBlock price = new TextBlock();
+            price.Text = product.price.ToString();
+            price.Width= 60;
+            stackPanel.Children.Add(price);
             ToolTip toolTip = new ToolTip(); //Создаем всплывающую подсказку
             toolTip.Content = product.name; //Вставляем полное имя товара из номенклатуры
             stackPanel.ToolTip = toolTip;
@@ -42,16 +51,17 @@ namespace TRPO.Pages
         public ListOfProductsPage()
         {
             InitializeComponent();
+            TextBlock textBlock = new TextBlock();
+            textBlock.Text = "Все";
+            ProductsCategoriesListBox.Items.Add(textBlock);
+            ProductsCategoriesListBox.SelectedItem = ProductsCategoriesListBox.Items[0];
             foreach (var item in App.GetClassifications)
             {
                 TextBlock ClassificationTextBlock = new TextBlock();
                 ClassificationTextBlock.Text = item.classification1;
                 ProductsCategoriesListBox.Items.Add(ClassificationTextBlock);
             }
-            foreach (var item in App.GetProduct)
-            {
-                ProductsListBox.Items.Add(ProductStackPanelCreate(item)); //Добавляем в лист бокс элемент стакпанели товара
-            }
+            
         }
         public string ChangeString(string text, int start, int end)
         {
@@ -84,7 +94,30 @@ namespace TRPO.Pages
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            ProductsListBox.Items.Clear();
+            TextBlock SelectedItem = (TextBlock)ProductsCategoriesListBox.SelectedItem;
+            if (SelectedItem.Text=="Все")
+            {
+                foreach (var item in App.GetProduct)
+                {
+                    if (item.name.Contains(SearchTextBox.Text))
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
+            }
+            else
+            {
+                int ClassificationId = App.GetClassifications.Where(x => x.classification1 == SelectedItem.Text).Select(x => x.classification_id).ToList().First();
+                foreach (var item in App.GetProduct.Where(x => x.classification_id == ClassificationId).Select(x => x).ToList())
+                {
+                    if (item.name.Contains(SearchTextBox.Text))
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
+            }
+            
         }
 
 
@@ -92,11 +125,43 @@ namespace TRPO.Pages
         {
             ProductsListBox.Items.Clear();
             var selectedItem = (TextBlock)ProductsCategoriesListBox.SelectedItem;
-            int ClassificationId = App.GetClassifications.Where(x=>x.classification1==selectedItem.Text).Select(x=>x.classification_id).ToList().First();
-            foreach (var item in App.GetProduct.Where(x=>x.classification_id ==ClassificationId).Select(x=>x).ToList())
+            if (string.IsNullOrEmpty(SearchTextBox.Text))
             {
-                ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                if (selectedItem.Text == "Все")
+                {
+                    foreach (var item in App.GetProduct)
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
+                else
+                {
+                    int ClassificationId = App.GetClassifications.Where(x => x.classification1 == selectedItem.Text).Select(x => x.classification_id).ToList().First();
+                    foreach (var item in App.GetProduct.Where(x => x.classification_id == ClassificationId).Select(x => x).ToList())
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
             }
+            else
+            {
+                if (selectedItem.Text == "Все")
+                {
+                    foreach (var item in App.GetProduct.Where(x=>x.name.Contains(SearchTextBox.Text)))
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
+                else
+                {
+                    int ClassificationId = App.GetClassifications.Where(x => x.classification1 == selectedItem.Text).Select(x => x.classification_id).ToList().First();
+                    foreach (var item in App.GetProduct.Where(x => x.classification_id == ClassificationId&&x.name.Contains(SearchTextBox.Text)).Select(x => x).ToList())
+                    {
+                        ProductsListBox.Items.Add(ProductStackPanelCreate(item));
+                    }
+                }
+            }
+            
         }
     }
 }
