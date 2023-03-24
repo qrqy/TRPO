@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TRPO"
         mc:Ignorable="d"
         Title="Материальный склад" Height="720" Width="960"
-        Closing="Window_Closing">
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
