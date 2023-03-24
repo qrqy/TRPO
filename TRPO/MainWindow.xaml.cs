@@ -25,10 +25,16 @@ namespace TRPO
     {
         public MainWindow()
         {
+            Task.Run(() => LoadBd());
             InitializeComponent();
             MainFrame.Navigate(new AuthPage());
         }
-
+        public void LoadBd()
+        {
+            App.GetUsers = new SkladBDEntities().users.ToList();
+            App.GetProduct = new SkladBDEntities().product.ToList();
+            App.GetStaff = new SkladBDEntities().staff.ToList();
+        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var result = MessageBox.Show("Вы уверены, что хотите закрыть программу?", "Окно закрытия", MessageBoxButton.YesNo);

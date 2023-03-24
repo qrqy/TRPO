@@ -13,6 +13,8 @@ namespace TRPO
     /// </summary>
     public partial class App : Application
     {
-        public static List<users> listUsers = new List<users>();
+        public static List<users> GetUsers { get; set; }
+        public static List<product> GetProduct { get; set; }
+        public static List<staff> GetStaff { get; set; }
     }
 }

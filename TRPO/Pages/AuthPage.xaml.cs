@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,30 +26,24 @@ namespace TRPO.Pages
         {
             InitializeComponent();
         }
-        
-
-
-
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            academEntities ent = new academEntities();
-            var req = from x in ent.Auth
-                      where x.Login == Login.Text
-                      select x.Password;
 
-
+            var req = from x in App.GetUsers
+                      where x.login == Login.Text
+                      select x.password;
+            
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             if (req.Count() > 0 && req.ToList().Contains(Password.Password.ToString()))
             {
-                mainWindow.dbPage.Navigate(new MenuPage(Login.Text));
+                mainWindow.MainFrame.Navigate(new AuthPage());
             }
             else
             {
                 MessageBox.Show("Не верный логин или пароль");
-
                 Password.Clear();
             }
-            */
+            
         }
 
 
@@ -96,7 +91,18 @@ namespace TRPO.Pages
 
         private void Login_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (Login.Text=="Введите логин")
+            {
+                Login.Clear();
+            }
+        }
 
+        private void Login_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Login.Text))
+            {
+                Login.Text = "Введите логин";
+            }
         }
     }
 }
