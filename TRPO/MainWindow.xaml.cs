@@ -31,9 +31,13 @@ namespace TRPO
         }
         public void LoadBd()
         {
-            App.GetUsers = new SkladBDEntities().users.ToList();
-            App.GetProduct = new SkladBDEntities().product.ToList();
-            App.GetStaff = new SkladBDEntities().staff.ToList();
+            SkladBDEntities skladBD = new SkladBDEntities();
+            App.GetUsers = skladBD.users.ToList();
+            App.GetProduct = skladBD.product.ToList();
+            App.GetStaff = skladBD.staff.ToList();
+            App.GetClassifications = skladBD.classification.ToList();
+            App.GetPosition = skladBD.position.ToList();
+            App.GetSupplier= skladBD.supplier.ToList();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

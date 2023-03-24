@@ -36,12 +36,13 @@ namespace TRPO.Pages
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             if (req.Count() > 0 && req.ToList().Contains(Password.Password.ToString()))
             {
-                mainWindow.MainFrame.Navigate(new AuthPage());
+                mainWindow.MainFrame.Navigate(new MenuPage());
             }
             else
             {
                 MessageBox.Show("Не верный логин или пароль");
                 Password.Clear();
+                PasswordTextBox.Visibility = Visibility.Visible;
             }
             
         }
@@ -91,17 +92,27 @@ namespace TRPO.Pages
 
         private void Login_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (Login.Text=="Введите логин")
-            {
-                Login.Clear();
-            }
+            LoginTextBox.Visibility = Visibility.Hidden;
         }
 
         private void Login_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(Login.Text))
             {
-                Login.Text = "Введите логин";
+                LoginTextBox.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Password_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordTextBox.Visibility= Visibility.Hidden;
+        }
+
+        private void Password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty( Password.Password)) 
+            { 
+                PasswordTextBox.Visibility= Visibility.Visible;
             }
         }
     }

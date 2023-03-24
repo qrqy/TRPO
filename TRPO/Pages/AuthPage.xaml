@@ -17,8 +17,10 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" MaxHeight="500" MinWidth="5" MaxWidth="305" MinHeight="5">
             <TextBlock FontFamily="Regular" Margin="0,0,0,200" Grid.Column="1" FontSize="32" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Авторизация</TextBlock>
-            <TextBox Text="Введите логин" LostFocus="Login_LostFocus" GotFocus="Login_GotFocus" Margin="0,0,0,80" x:Name="Login" KeyDown="Login_KeyDown" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-            <PasswordBox Grid.Column="1" Margin="0,80,0,0" x:Name="Password" KeyDown="Password_KeyDown" FontSize="30" PasswordChar="*" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
+            <TextBox LostFocus="Login_LostFocus" GotFocus="Login_GotFocus" Margin="0,0,0,80" x:Name="Login" KeyDown="Login_KeyDown" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <PasswordBox GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"  Grid.Column="1" Margin="0,80,0,0" x:Name="Password" KeyDown="Password_KeyDown" FontSize="30" PasswordChar="*" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
+            <TextBlock x:Name="LoginTextBox" Text="Введите логин" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,80"></TextBlock>
+            <TextBlock x:Name="PasswordTextBox" Text="Введите пароль" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,80,0,0"></TextBlock>
             <TextBox Visibility="Collapsed" Margin="0,80,0,0" Name="PasswordUnmask" FontSize="30" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         

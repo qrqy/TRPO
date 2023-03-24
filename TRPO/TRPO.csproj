@@ -73,6 +73,9 @@
     <Compile Include="classification.cs">
       <DependentUpon>SkladBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ListOfProductsPage.xaml.cs">
+      <DependentUpon>ListOfProductsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ListOfProductsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

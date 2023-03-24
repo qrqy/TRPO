@@ -24,5 +24,16 @@ namespace TRPO.Pages
         {
             InitializeComponent();
         }
+        public MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
+        public ListOfProductsPage productsPage = new ListOfProductsPage();
+        private void ListOfProducts_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.MainFrame.Navigate(productsPage);
+        }
+
+        private void ReceiptOfProducts_Click(object sender, RoutedEventArgs e)
+        {
+            //mainWindow.MainFrame.Navigate();
+        }
     }
 }

@@ -16,5 +16,8 @@ namespace TRPO
         public static List<users> GetUsers { get; set; }
         public static List<product> GetProduct { get; set; }
         public static List<staff> GetStaff { get; set; }
+        public static List<classification> GetClassifications { get; set; }
+        public static List<position> GetPosition { get; set; }
+        public static List<supplier> GetSupplier { get; set; }
     }
 }
