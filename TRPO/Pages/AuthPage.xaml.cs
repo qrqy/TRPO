@@ -73,7 +73,7 @@ namespace TRPO.Pages
         private void ShowPassword_MouseLeave(object sender, MouseEventArgs e) => HidePasswordFunction();
         private void ShowPasswordFunction()
         {
-            ShowPassword.Text = "HIDE";
+            ShowPassword.Text = "Скрыть пароль";
             //dockPanel.Visibility = Visibility.Visible;
             Password.Visibility = Visibility.Hidden;
             PasswordUnmask.Text = Password.Password;
@@ -82,7 +82,7 @@ namespace TRPO.Pages
 
         private void HidePasswordFunction()
         {
-            ShowPassword.Text = "SHOW";
+            ShowPassword.Text = "Показать пароль";
             //dockPanel.Visibility = Visibility.Hidden;
             Password.Visibility = Visibility.Visible;
 
