@@ -19,6 +19,15 @@
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="18" Margin="0,30,0,0">Категории</TextBlock>
         <ListBox SelectionChanged="ProductsCategoriesListBox_SelectionChanged" x:Name="ProductsCategoriesListBox" Grid.Column="0" VerticalAlignment="Top" Margin="0,60,0,0" HorizontalAlignment="Center" Width="auto" Height="auto"></ListBox>
         <TextBlock Grid.Column="1" VerticalAlignment="Top" Margin="10,10,0,0" Padding="10">Товары</TextBlock>
-        <ListBox x:Name="ProductsListBox" Grid.Column="1" VerticalAlignment="Top" Padding="10" Margin="5,45,0,0"></ListBox>
+        <ListBox x:Name="ProductsListBox" Grid.Column="1" VerticalAlignment="Top" Padding="10" Margin="5,45,0,0">
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="30">ID</TextBlock>
+                    <TextBlock Width="250">Название товара</TextBlock>
+                    <TextBlock Width="30">Кол-во</TextBlock>
+                    <TextBlock Width="60">Цена</TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
     </Grid>
 </Page>
