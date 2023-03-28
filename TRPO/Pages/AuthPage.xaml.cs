@@ -70,9 +70,16 @@ namespace TRPO.Pages
         private void ShowPasswordFunction()
         {
             ShowPassword.Text = "Скрыть пароль";
-            PasswordUnmask.Visibility = Visibility.Visible;
-            Password.Visibility = Visibility.Hidden;
-            PasswordUnmask.Text = Password.Password;
+            if (string.IsNullOrEmpty(Password.Password))
+            {
+                return;
+            }
+            else
+            {
+                PasswordUnmask.Visibility = Visibility.Visible;
+                Password.Visibility = Visibility.Hidden;
+                PasswordUnmask.Text = Password.Password;
+            }
 
         }
 

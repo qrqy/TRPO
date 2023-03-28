@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,11 @@ namespace TRPO
         {
             Task.Run(() => LoadBd());
             InitializeComponent();
+            var uri = new Uri("Dictionary.xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+
             MainFrame.Navigate(new AuthPage());
         }
         public void LoadBd()
