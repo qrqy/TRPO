@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -22,6 +23,8 @@ namespace TRPO.Pages
     /// </summary>
     public partial class ListOfProductsPage : Page
     {
+        public static List<product> products;
+        ICollectionView view = CollectionViewSource.GetDefaultView(products);
         public StackPanel ProductStackPanelCreate(product product) 
         {
             StackPanel stackPanel = new StackPanel(); //Создание StackPanel для продукта
@@ -62,7 +65,8 @@ namespace TRPO.Pages
                 ClassificationTextBlock.Text = item.classification1;
                 ProductsCategoriesListBox.Items.Add(ClassificationTextBlock);
             }
-            ProductsListView.ItemsSource=App.GetProduct;
+            products = App.GetProduct;
+            ProductsListView.ItemsSource=products;
         }
         public string ChangeString(string text)
         {
@@ -117,6 +121,15 @@ namespace TRPO.Pages
                         ProductsListBox.Items.Add(ProductStackPanelCreate(item));
                     }
                 }
+            }
+
+
+            if (SelectedItem.Text=="Все")
+            {
+                ProductsListView.ItemsSource = App.GetProduct;
+                
+                
+                view.Refresh();
             }
             
         }

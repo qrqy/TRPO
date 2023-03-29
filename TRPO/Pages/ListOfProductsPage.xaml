@@ -8,13 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfProductsPage"
       Background="White">
-    <Page.Resources>
-        <ObjectDataProvider MethodName="GetName" x:Key="convertTemp">
-            <ObjectDataProvider.MethodParameters>
-                
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
@@ -39,7 +33,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=product_id}"></GridViewColumn>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=name, BindsDirectlyToSource=True, Source=GetName}"></GridViewColumn>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=name_Les30}"></GridViewColumn>
                     <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Path=count}"></GridViewColumn>
                     <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Path=price}"></GridViewColumn>
                 </GridView>
