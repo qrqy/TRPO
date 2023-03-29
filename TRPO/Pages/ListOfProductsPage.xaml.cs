@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -33,7 +34,7 @@ namespace TRPO.Pages
             name.Name = "id" + product.product_id;
             name.Width = 250; //Ставим ширину текстового поля
             name.Margin = new Thickness(10, 0, 0, 0); //Отступ текстового поля
-            name.Text = ChangeString(product.name, 0, 30); //Вернет обрезанную строчку если больше 30 символов
+            name.Text = ChangeString(product.name); //Вернет обрезанную строчку если больше 30 символов
             stackPanel.Children.Add(name); //Добавляем элемент имени
             TextBlock count = new TextBlock(); //Создаем текстовое поле для кол-ва товаров
             count.Text = product.count.ToString();  //Число товаров
@@ -61,13 +62,13 @@ namespace TRPO.Pages
                 ClassificationTextBlock.Text = item.classification1;
                 ProductsCategoriesListBox.Items.Add(ClassificationTextBlock);
             }
-            
+            ProductsListView.ItemsSource=App.GetProduct;
         }
-        public string ChangeString(string text, int start, int end)
+        public string ChangeString(string text)
         {
             if (text.Length>=30)
             {
-                return text.Substring(start, end)+"...";
+                return text.Substring(0, 30)+"...";
             }
             else
             {
