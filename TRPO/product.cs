@@ -37,7 +37,10 @@ namespace TRPO
                 }
             } 
             set { } }
-    
+        public string GetClassification()
+        {
+            return classification.classification1;
+        }
         public virtual classification classification { get; set; }
         public virtual supplier supplier { get; set; }
     }

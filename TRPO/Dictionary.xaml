@@ -105,4 +105,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
+    <Style TargetType="Grid" x:Key="LoginGrid">
+        <Setter Property="Background" Value="pink"></Setter>
+    </Style>
 </ResourceDictionary>
