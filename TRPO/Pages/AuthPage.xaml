@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="960"
       Title="AuthPage">
-    <Grid Background="White">
+    <Grid>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

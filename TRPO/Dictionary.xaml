@@ -9,6 +9,10 @@
     <StaticResource ResourceKey="AddyColor1" x:Key="AddyColor1Resource"/>
     <SolidColorBrush x:Key="AddyColor2" Color="#FFFCD6"/>
     <StaticResource ResourceKey="AddyColor2" x:Key="AddyColor2Resource"/>
+    <SolidColorBrush x:Key="TextColor1" Color="white"/>
+    <StaticResource ResourceKey="TextColor1" x:Key="TextColor1Resource"/>
+    <SolidColorBrush x:Key="TextColor2" Color="Black"/>
+    <StaticResource ResourceKey="TextColor2" x:Key="TextColor2Resource"/>
     <!--Button style-->
     <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
     <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
@@ -23,7 +27,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
         <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="Foreground" Value="{StaticResource MainColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -113,7 +117,22 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style TargetType="Grid" x:Key="LoginGrid">
-        <Setter Property="Background" Value="pink"></Setter>
+    <!--ListView style -->
+    <Style TargetType="ListView">
+        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"></Setter>
+        
+    </Style>
+    <Style TargetType="ListViewItem">
+        <Setter Property="Foreground" Value="{StaticResource AddyColor2Resource}" />
+            
+    </Style>
+    <!--ListBox style-->
+    <Style TargetType="ListBox">
+        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"></Setter>
+    </Style>
+    
+    <Style TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource MainColor2Resource}"></Setter>
     </Style>
 </ResourceDictionary>

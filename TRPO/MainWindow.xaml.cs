@@ -66,7 +66,7 @@ public partial class MainWindow : Window
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
-            Task.Run(() => LoadBd()).ConfigureAwait(true);
+            LoadBd();
             MainFrame.Navigate(new AuthPage());
         }
         public void LoadBd()
