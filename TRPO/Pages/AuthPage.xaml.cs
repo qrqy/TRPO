@@ -26,6 +26,7 @@ namespace TRPO.Pages
         {
             InitializeComponent();
         }
+        public MenuPage menuPage = new MenuPage();
         private void Login_Click(object sender, RoutedEventArgs e)
         {
 
@@ -36,7 +37,7 @@ namespace TRPO.Pages
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             if (req.Count() > 0 && req.ToList().Contains(Password.Password.ToString()))
             {
-                mainWindow.MainFrame.Navigate(new MenuPage());
+                mainWindow.MainFrame.Navigate(menuPage);
             }
             else
             {

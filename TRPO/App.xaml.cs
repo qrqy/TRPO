@@ -19,5 +19,20 @@ namespace TRPO
         public static List<classification> GetClassifications { get; set; }
         public static List<position> GetPosition { get; set; }
         public static List<supplier> GetSupplier { get; set; }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            LoadBd();
+        }
+        public void LoadBd()
+        {
+            SkladBDEntities skladBD = new SkladBDEntities();
+            GetUsers = skladBD.users.ToList();
+            GetProduct = skladBD.product.ToList();
+            GetStaff = skladBD.staff.ToList();
+            GetClassifications = skladBD.classification.ToList();
+            GetPosition = skladBD.position.ToList();
+            GetSupplier = skladBD.supplier.ToList();
+        }
     }
 }

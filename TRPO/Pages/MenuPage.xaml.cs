@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using TRPO;
+
 namespace TRPO.Pages
 {
     /// <summary>
@@ -24,16 +26,24 @@ namespace TRPO.Pages
         {
             InitializeComponent();
         }
-        public MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
+        public MainWindow mainWindow;
         public ListOfProductsPage productsPage = new ListOfProductsPage();
+        public SettingsPage settingsPage = new SettingsPage();
         private void ListOfProducts_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(productsPage);
         }
 
         private void ReceiptOfProducts_Click(object sender, RoutedEventArgs e)
         {
             //mainWindow.MainFrame.Navigate();
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow = (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(settingsPage);
         }
     }
 }

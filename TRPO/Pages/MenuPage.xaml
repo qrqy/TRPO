@@ -17,5 +17,6 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="ListOfProducts" Click="ListOfProducts_Click" Grid.Column="1" Height="auto" Width="auto" VerticalAlignment="Top" Margin="0,100,0,0" Padding="10" FontSize="18">Список товаров</Button>
         <Button x:Name="ReceiptOfProducts" Click="ReceiptOfProducts_Click" Grid.Column="1" Height="auto" Width="auto" VerticalAlignment="Top" Margin="0,150,0,0" Padding="10" FontSize="18">Постпуление товаров</Button>
+        <Button x:Name="Settings" Click="Settings_Click" Grid.Column="1" Height="auto" Width="auto" VerticalAlignment="Top" Margin="0,200,0,0" Padding="10" FontSize="18" Content="Настройки"/>
     </Grid>
 </Page>

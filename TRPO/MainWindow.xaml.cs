@@ -59,26 +59,17 @@ namespace TRPO
 }
 public partial class MainWindow : Window
     {
+        public AuthPage authPage = new AuthPage();
         public MainWindow()
         {
             InitializeComponent();
-            var uri = new Uri("Dictionary.xaml", UriKind.Relative);
+            var uri = new Uri("/Dictionaries/Dictionary.xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
-            LoadBd();
-            MainFrame.Navigate(new AuthPage());
+            MainFrame.Navigate(authPage);
         }
-        public void LoadBd()
-        {
-            SkladBDEntities skladBD = new SkladBDEntities();
-            App.GetUsers = skladBD.users.ToList();
-            App.GetProduct = skladBD.product.ToList();
-            App.GetStaff = skladBD.staff.ToList();
-            App.GetClassifications = skladBD.classification.ToList();
-            App.GetPosition = skladBD.position.ToList();
-            App.GetSupplier= skladBD.supplier.ToList();
-        }
+        
         
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
