@@ -45,12 +45,6 @@ namespace TRPO.Pages
                     Application.Current.Resources.Clear();
                     Application.Current.Resources.MergedDictionaries.Add(resourceDictD);
                     break;
-                case 2:
-                    var Color = new Uri("/Dictionaries/Dictionary.xaml", UriKind.Relative);
-                    ResourceDictionary resourceDictC = Application.LoadComponent(Color) as ResourceDictionary;
-                    Application.Current.Resources.Clear();
-                    Application.Current.Resources.MergedDictionaries.Add(resourceDictC);
-                    break;
             }
         }
 

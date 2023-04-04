@@ -9,7 +9,7 @@
     <StaticResource ResourceKey="AddyColor1" x:Key="AddyColor1Resource"/>
     <SolidColorBrush x:Key="AddyColor2" Color="DarkBlue"/>
     <StaticResource ResourceKey="AddyColor2" x:Key="AddyColor2Resource"/>
-    <SolidColorBrush x:Key="TextColor1" Color="black"/>
+    <SolidColorBrush x:Key="TextColor1" Color="white"/>
     <StaticResource ResourceKey="TextColor1" x:Key="TextColor1Resource"/>
     <SolidColorBrush x:Key="TextColor2" Color="white"/>
     <StaticResource ResourceKey="TextColor2" x:Key="TextColor2Resource"/>
@@ -27,7 +27,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
         <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -121,10 +121,10 @@
     <!--ListView style -->
     <Style TargetType="ListView">
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
     </Style>
     <Style TargetType="GridViewColumnHeader">
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
     </Style>
     
@@ -152,11 +152,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
     </Style>
     <!--ListBox style-->
     <Style TargetType="ListBox">
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"></Setter>
     </Style>
 
@@ -173,6 +173,6 @@
     </Style>
     <!--Label style-->
     <Style TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
     </Style>
 </ResourceDictionary>
