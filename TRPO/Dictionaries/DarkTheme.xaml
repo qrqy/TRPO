@@ -125,10 +125,33 @@
     </Style>
     <Style TargetType="GridViewColumnHeader">
         <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
-        <Setter Property="Background" Value="{StaticResource MainColor2Resource}"/>
+        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
     </Style>
     
     <Style TargetType="ListViewItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border x:Name="border" CornerRadius="5" Padding="2" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" BorderThickness="1">
+                        <GridViewRowPresenter/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            <Setter Property="Background" TargetName="border" Value="Red"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="Pink"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="black"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            <Setter Property="Background" TargetName="border" Value="Red"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Foreground" Value="{StaticResource TextColor2Resource}"/>
     </Style>
     <!--ListBox style-->

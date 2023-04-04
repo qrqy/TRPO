@@ -20,15 +20,6 @@
         <ListBox SelectionChanged="ProductsCategoriesListBox_SelectionChanged" x:Name="ProductsCategoriesListBox" Grid.Column="0" VerticalAlignment="Top" Margin="0,60,0,0" HorizontalAlignment="Center" Width="auto" Height="auto"></ListBox>
         <TextBlock Grid.Column="1" VerticalAlignment="Top" Margin="10,10,0,0" Padding="10">Товары</TextBlock>
         <ListView x:Name="ProductsListView" Grid.Column="1" VerticalAlignment="Top" Padding="10" Margin="5,45,0,0" ItemsSource="{Binding App.GetProduct}">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="ToolTip">
-                        <Setter.Value>
-                            <TextBlock Text="{Binding Path=name}"/>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=product_id}"></GridViewColumn>
