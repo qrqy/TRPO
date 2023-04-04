@@ -23,12 +23,6 @@
                     <TextBlock>Ночь</TextBlock>
                 </StackPanel>
             </ComboBoxItem>
-            <ComboBoxItem Name="ColorfulTheme">
-                <StackPanel>
-                    <TextBlock FontSize="16">Цветастая</TextBlock>
-                    <TextBlock>День</TextBlock>
-                </StackPanel>
-            </ComboBoxItem>
         </ComboBox>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Padding="10" Click="Exit_Click">Выход</Button>
     </Grid>

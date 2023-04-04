@@ -1,6 +1,24 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--Constant values-->
+    <!--Background and text colors-->
+    <SolidColorBrush x:Key="BackDropColor" Color="#1A1A1A"/>
+    <StaticResource ResourceKey="BackDropColor" x:Key="BackDropColorResource"/>
+    <SolidColorBrush x:Key="MainTextColor" Color="#E2E3E7"/>
+    <StaticResource ResourceKey="MainTextColor" x:Key="MainTextColorResource"/>
+    <!--Themes colors-->
+    <SolidColorBrush x:Key="ThemeColor1" Color="#454648"/>
+    <StaticResource ResourceKey="ThemeColor1" x:Key="ThemeColor1Resource"/>
+    <SolidColorBrush x:Key="ThemeColor2" Color="#5E5F61"/>
+    <StaticResource ResourceKey="ThemeColor2" x:Key="ThemeColor2Resource"/>
+    <SolidColorBrush x:Key="ThemeColor3" Color="#9FA0A2"/>
+    <StaticResource ResourceKey="ThemeColor3" x:Key="ThemeColor3Resource"/>
+    <SolidColorBrush x:Key="ThemeColor4" Color="#91949B"/>
+    <StaticResource ResourceKey="ThemeColor4" x:Key="ThemeColor4Resource"/>
+    <SolidColorBrush x:Key="AccentColor" Color="#71ABEB"/>
+    <StaticResource ResourceKey="AccentColor" x:Key="AccentColorResource"/>
+
+
     <SolidColorBrush x:Key="MainColor1" Color="Gray"/>
     <StaticResource ResourceKey="MainColor1" x:Key="MainColor1Resource"/>
     <SolidColorBrush x:Key="MainColor2" Color="Black"/>
@@ -9,10 +27,6 @@
     <StaticResource ResourceKey="AddyColor1" x:Key="AddyColor1Resource"/>
     <SolidColorBrush x:Key="AddyColor2" Color="DarkBlue"/>
     <StaticResource ResourceKey="AddyColor2" x:Key="AddyColor2Resource"/>
-    <SolidColorBrush x:Key="TextColor1" Color="white"/>
-    <StaticResource ResourceKey="TextColor1" x:Key="TextColor1Resource"/>
-    <SolidColorBrush x:Key="TextColor2" Color="white"/>
-    <StaticResource ResourceKey="TextColor2" x:Key="TextColor2Resource"/>
     <!--Button style-->
     <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
     <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
@@ -25,9 +39,9 @@
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
     <Style TargetType="{x:Type Button}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Background" Value="{StaticResource AccentColorResource}"/>
         <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -62,7 +76,7 @@
     </Style>
     <!--TextBox style-->
     <Style TargetType="TextBox">
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
@@ -80,7 +94,7 @@
         <Setter Property="PasswordChar" Value="●"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
         <Setter Property="BorderBrush" Value="black"/>
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -121,18 +135,28 @@
     <!--ListView style -->
     <Style TargetType="ListView">
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
     <Style TargetType="GridViewColumnHeader">
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{StaticResource AccentColorResource}">
+                        <TextBlock x:Name="ContentHeader" Padding="5,5,5,0" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        
     </Style>
     
     <Style TargetType="ListViewItem">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border x:Name="border" CornerRadius="5" Padding="2" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" BorderThickness="1">
+                    <Border x:Name="border" CornerRadius="5" Padding="2" Background="{StaticResource AccentColorResource}" BorderBrush="Black" BorderThickness="1">
                         <GridViewRowPresenter/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -152,16 +176,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
     <!--ListBox style-->
     <Style TargetType="ListBox">
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"></Setter>
     </Style>
 
     <Style TargetType="Grid">
-        <Setter Property="Background" Value="{StaticResource MainColor2Resource}"></Setter>
+        <Setter Property="Background" Value="{StaticResource BackDropColorResource}"></Setter>
     </Style>
 
     <!--ComboBox style-->
@@ -173,6 +197,10 @@
     </Style>
     <!--Label style-->
     <Style TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource TextColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
+    </Style>
+    <!--TextBlock style-->
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
 </ResourceDictionary>

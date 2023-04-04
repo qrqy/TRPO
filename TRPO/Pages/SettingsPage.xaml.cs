@@ -26,7 +26,7 @@ namespace TRPO.Pages
         public SettingsPage()
         {
             InitializeComponent();
-            ThemeComboBox.SelectedIndex= 2;
+            ThemeComboBox.SelectedIndex= 0;
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
