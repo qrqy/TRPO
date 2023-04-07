@@ -35,7 +35,7 @@ namespace TRPO.Pages
                       select x.password;
             
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-            if (req.Count() > 0 && req.ToList().Contains(Password.Password.ToString()))
+            if (req.Count() > 0 && req.ToList().Contains(App.GetHashPasswordFromString(Password.Password.ToString())))
             {
                 mainWindow.MainFrame.Navigate(menuPage);
             }

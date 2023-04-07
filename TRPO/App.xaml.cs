@@ -6,6 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+using System.Security.Cryptography;
+using System.Text;
+
 namespace TRPO
 {
     /// <summary>
@@ -33,6 +36,14 @@ namespace TRPO
             GetClassifications = skladBD.classification.ToList();
             GetPosition = skladBD.position.ToList();
             GetSupplier = skladBD.supplier.ToList();
+            skladBD.Dispose();
         }
-    }
+        public static string GetHashPasswordFromString(string PasswordSring)
+        {
+            using (var Hash = SHA1.Create())
+            {
+                return string.Concat(Hash.ComputeHash(Encoding.UTF8.GetBytes(PasswordSring)));
+            }
+        }
+    }   
 }

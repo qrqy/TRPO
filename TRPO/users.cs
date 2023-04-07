@@ -21,5 +21,6 @@ namespace TRPO
         public string familia { get; set; }
         public string imya { get; set; }
         public string otchestvo { get; set; }
+        public Nullable<int> theme_id { get; set; }
     }
 }

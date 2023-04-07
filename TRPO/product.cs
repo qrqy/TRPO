@@ -23,25 +23,10 @@ namespace TRPO
         public Nullable<int> count { get; set; }
         public int classification_id { get; set; }
         public string name { get; set; }
-
-        public string name_Les30 { 
-            get 
-            { 
-                if (name.Length < 30)
-                {
-                    return name;
-                }
-                else
-                {
-                    return name.Substring(0, 30)+"...";
-                }
-            } 
-            set { } }
-        public string GetClassification()
-        {
-            return classification.classification1;
-        }
         public virtual classification classification { get; set; }
         public virtual supplier supplier { get; set; }
+
+        public string GetClassification() { return this.classification.classification1; }
+        public string name_Les30 { get { return name.Length < 30 ? name : name.Substring(0, 30); } set { } }
     }
 }

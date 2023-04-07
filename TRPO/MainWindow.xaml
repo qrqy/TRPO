@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Материальный склад" Height="720" Width="960"
         Closing="Window_Closing"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
     <Window.Resources>
         <local:CurrentTime x:Key="currentTime" UpdateInterval="00:00:00.100"/>
     </Window.Resources>

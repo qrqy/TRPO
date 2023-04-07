@@ -77,5 +77,14 @@ public partial class MainWindow : Window
             if (result == MessageBoxResult.No) { e.Cancel=true; }
             else { e.Cancel = false; }
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if ( e.ChangedButton==MouseButton.XButton1 | e.ChangedButton==MouseButton.XButton2)
+            {
+                MainFrame.NavigationService.RemoveBackEntry();
+                return;
+            }
+        }
     }
 }

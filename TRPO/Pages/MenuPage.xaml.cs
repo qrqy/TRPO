@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,8 +38,34 @@ namespace TRPO.Pages
 
         private void ReceiptOfProducts_Click(object sender, RoutedEventArgs e)
         {
-            //mainWindow.MainFrame.Navigate();
+            //Перевод всех паролей в бд в прикол на хеше
+            /* 
+            using (SkladBDEntities skladBD = new SkladBDEntities())
+            {
+                foreach (var item in skladBD.users)
+                {
+                    item.password = App.GetHashPasswordFromString(item.password).ToString();
+                }
+                try
+                {
+                    skladBD.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                    {
+                        MessageBox.Show("Object: " + validationError.Entry.Entity.ToString());
+                        foreach (DbValidationError err in validationError.ValidationErrors)
+                        {
+                            MessageBox.Show(err.ErrorMessage);
+                        }
+                    }
+                }
+                
+            }
+            */
         }
+        
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
