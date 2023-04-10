@@ -13,10 +13,10 @@ namespace TRPO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SkladBDEntities : DbContext
+    public partial class SkladBDEntitie : DbContext
     {
-        public SkladBDEntities()
-            : base("name=SkladBDEntities")
+        public SkladBDEntitie()
+            : base("name=SkladBDEntitie")
         {
         }
     

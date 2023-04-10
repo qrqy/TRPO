@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace TRPO.Pages
 {
     /// <summary>
@@ -108,6 +109,11 @@ namespace TRPO.Pages
                 }
             }
             
+        }
+
+        private void ProductsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

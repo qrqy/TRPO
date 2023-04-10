@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище SkladBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SkladBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="classification">
           <Key>
             <PropertyRef Name="classification_id" />
@@ -32,6 +32,7 @@
           <Property Name="count" Type="int" />
           <Property Name="classification_id" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="imageSource" Type="nchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="staff">
           <Key>
@@ -120,7 +121,8 @@
             <End Role="staff" EntitySet="staff" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SkladBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -153,6 +155,7 @@
           <Property Name="count" Type="Int32" />
           <Property Name="classification_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imageSource" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="classification" Relationship="Self.FK_product_classification" FromRole="product" ToRole="classification" />
           <NavigationProperty Name="supplier" Relationship="Self.FK_product_supplier" FromRole="product" ToRole="supplier" />
         </EntityType>
@@ -225,7 +228,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SkladBDEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SkladBDEntitie" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="classification" EntityType="Self.classification" />
           <EntitySet Name="position" EntityType="Self.position" />
           <EntitySet Name="product" EntityType="Self.product" />
@@ -250,7 +253,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SkladBDModelContainer" CdmEntityContainer="SkladBDEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SkladBDModelContainer" CdmEntityContainer="SkladBDEntitie">
           <EntitySetMapping Name="classification">
             <EntityTypeMapping TypeName="SkladBDModel.classification">
               <MappingFragment StoreEntitySet="classification">
@@ -279,6 +282,7 @@
                 <ScalarProperty Name="count" ColumnName="count" />
                 <ScalarProperty Name="classification_id" ColumnName="classification_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="imageSource" ColumnName="imageSource" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -305,7 +309,6 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="SkladBDModel.users">
               <MappingFragment StoreEntitySet="users">
-                <ScalarProperty Name="theme_id" ColumnName="theme_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -313,6 +316,7 @@
                 <ScalarProperty Name="familia" ColumnName="familia" />
                 <ScalarProperty Name="imya" ColumnName="imya" />
                 <ScalarProperty Name="otchestvo" ColumnName="otchestvo" />
+                <ScalarProperty Name="theme_id" ColumnName="theme_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

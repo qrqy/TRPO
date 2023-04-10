@@ -13,16 +13,27 @@
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <TextBox TextChanged="SearchTextBox_TextChanged" LostFocus="SearchTextBox_LostFocus" x:Name="SearchTextBox" GotFocus="TextBox_GotFocus" Grid.Column="0" VerticalAlignment="Top" Margin="10"></TextBox>
         <TextBlock x:Name="SearchTextBlock" IsHitTestVisible="False" VerticalAlignment="Top" Padding="5,0,0,0" Margin="10">Поиск</TextBlock>
         <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="18" Margin="0,30,0,0">Категории</TextBlock>
         <ListBox SelectionChanged="ProductsCategoriesListBox_SelectionChanged" x:Name="ProductsCategoriesListBox" Grid.Column="0" VerticalAlignment="Top" Margin="0,60,0,0" HorizontalAlignment="Center" Width="auto" Height="auto"></ListBox>
         <TextBlock Grid.Column="1" VerticalAlignment="Top" Margin="10,10,0,0" Padding="10">Товары</TextBlock>
-        <ListView x:Name="ProductsListView" Grid.Column="1" VerticalAlignment="Top" Padding="10" Margin="5,45,0,0" ItemsSource="{Binding App.GetProduct}">
+        <ListView x:Name="ProductsListView" Grid.Column="1" VerticalAlignment="Top" Padding="10" Margin="5,45,0,0" ItemsSource="{Binding App.GetProduct}" SelectionChanged="ProductsListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=product_id}"></GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=imageSource}" Height="30" Width="30" Stretch="Fill"></Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=product_id}">
+                        <GridViewColumnHeader>
+                            <TextBlock Width="auto" Height="auto">ID</TextBlock>
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
                     <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=name_Les30}"></GridViewColumn>
                     <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Path=count}"></GridViewColumn>
                     <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Path=price}"></GridViewColumn>

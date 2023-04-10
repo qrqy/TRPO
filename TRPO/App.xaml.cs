@@ -29,7 +29,7 @@ namespace TRPO
         }
         public void LoadBd()
         {
-            SkladBDEntities skladBD = new SkladBDEntities();
+            SkladBDEntitie skladBD = new SkladBDEntitie();
             GetUsers = skladBD.users.ToList();
             GetProduct = skladBD.product.ToList();
             GetStaff = skladBD.staff.ToList();
