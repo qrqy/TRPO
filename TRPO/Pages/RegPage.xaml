@@ -1,0 +1,37 @@
+﻿<Page x:Class="TRPO.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TRPO.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock>ФИО</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Логин</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Пароль</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Подтверждение пароля</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Зарплата</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Роль</TextBlock>
+            <ComboBox x:Name="PositionComboBox"></ComboBox>
+        </StackPanel>
+    </Grid>
+</Page>

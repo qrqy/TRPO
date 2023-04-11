@@ -30,6 +30,7 @@ namespace TRPO.Pages
         public MainWindow mainWindow;
         public ListOfProductsPage productsPage = new ListOfProductsPage();
         public SettingsPage settingsPage = new SettingsPage();
+        public RegPage regPage = new RegPage();
         private void ListOfProducts_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
@@ -71,6 +72,12 @@ namespace TRPO.Pages
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(settingsPage);
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow = (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(regPage);
         }
     }
 }

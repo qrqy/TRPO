@@ -191,9 +191,16 @@
     <!--ComboBox style-->
     <Style TargetType="ComboBox">
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
     <Style TargetType="ComboBoxItem">
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <!--Label style-->
     <Style TargetType="Label">
