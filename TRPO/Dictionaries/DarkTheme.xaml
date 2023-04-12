@@ -196,11 +196,20 @@
     <Style TargetType="ComboBoxItem">
         <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
-        <Style.Triggers>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </Trigger>
-        </Style.Triggers>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border x:Name="ComboBoxItemBorder" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" CornerRadius="1" Margin="1" BorderThickness="1">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" TargetName="ComboBoxItemBorder" Value="{StaticResource MainColor2Resource}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     <!--Label style-->
     <Style TargetType="Label">
