@@ -31,7 +31,17 @@
             <TextBlock>Зарплата</TextBlock>
             <TextBox></TextBox>
             <TextBlock>Роль</TextBlock>
-            <ComboBox x:Name="PositionComboBox"></ComboBox>
+            <ComboBox Foreground="black"  x:Name="PositionComboBox">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=SelectedItem.DoesNotParticipate}" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </Page>

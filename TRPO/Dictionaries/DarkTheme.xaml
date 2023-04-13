@@ -6,6 +6,8 @@
     <StaticResource ResourceKey="BackDropColor" x:Key="BackDropColorResource"/>
     <SolidColorBrush x:Key="MainTextColor" Color="#E2E3E7"/>
     <StaticResource ResourceKey="MainTextColor" x:Key="MainTextColorResource"/>
+    <SolidColorBrush x:Key="SecondTextColor" Color="#000000"/>
+    <StaticResource ResourceKey="SecondTextColor" x:Key="SecondTextColorResource"/>
     <!--Themes colors-->
     <SolidColorBrush x:Key="ThemeColor1" Color="#454648"/>
     <StaticResource ResourceKey="ThemeColor1" x:Key="ThemeColor1Resource"/>
@@ -80,7 +82,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                    <Border CornerRadius="5" Padding="2" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" BorderThickness="1">
+                    <Border CornerRadius="5" Padding="2" Background="{StaticResource ThemeColor1Resource}" BorderBrush="Black" BorderThickness="1">
                         <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
                     </Border>
 
@@ -92,7 +94,7 @@
     <!--PasswordBox style-->
     <Style TargetType="{x:Type PasswordBox}">
         <Setter Property="PasswordChar" Value="●"/>
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         <Setter Property="BorderBrush" Value="black"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -105,7 +107,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
-                    <Border x:Name="border" CornerRadius="5" Padding="2" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" BorderThickness="1">
+                    <Border x:Name="border" CornerRadius="5" Padding="2" Background="{StaticResource ThemeColor1Resource}" BorderBrush="Black" BorderThickness="1">
                         <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -134,7 +136,7 @@
     </Style>
     <!--ListView style -->
     <Style TargetType="ListView">
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
     <Style TargetType="GridViewColumnHeader">
@@ -148,7 +150,7 @@
             </Setter.Value>
         </Setter>-->
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         
     </Style>
     
@@ -181,7 +183,7 @@
     <!--ListBox style-->
     <Style TargetType="ListBox">
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"></Setter>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"></Setter>
     </Style>
 
     <Style TargetType="Grid">
@@ -190,21 +192,24 @@
 
     <!--ComboBox style-->
     <Style TargetType="ComboBox">
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
-        <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorResource}"/>
     </Style>
+    
+        
+
     <Style TargetType="ComboBoxItem">
-        <Setter Property="Background" Value="{StaticResource MainColor1Resource}"/>
+        <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                    <Border x:Name="ComboBoxItemBorder" Background="{StaticResource MainColor1Resource}" BorderBrush="Black" CornerRadius="1" Margin="1" BorderThickness="1">
+                    <Border x:Name="ComboBoxItemBorder" Background="{StaticResource ThemeColor1Resource}" BorderBrush="Black" CornerRadius="1" Margin="1" BorderThickness="1">
                         <ContentPresenter />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="ComboBoxItemBorder" Value="{StaticResource MainColor2Resource}"/>
+                            <Setter Property="Background" TargetName="ComboBoxItemBorder" Value="{StaticResource ThemeColor2Resource}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
