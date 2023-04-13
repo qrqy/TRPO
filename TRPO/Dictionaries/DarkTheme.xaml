@@ -195,8 +195,7 @@
         <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         <Setter Property="Foreground" Value="{StaticResource SecondTextColorResource}"/>
     </Style>
-    
-        
+
 
     <Style TargetType="ComboBoxItem">
         <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
