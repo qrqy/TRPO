@@ -25,7 +25,9 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding Path=imageSource}" Height="30" Width="30" Stretch="Fill"></Image>
+                                <StackPanel>
+                                    <Image Source="{Binding Path=imageSource}" Height="30" Width="30" Stretch="Fill"></Image>
+                                </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
