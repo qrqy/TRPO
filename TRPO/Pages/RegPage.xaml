@@ -31,7 +31,10 @@
             <TextBlock>Зарплата</TextBlock>
             <TextBox></TextBox>
             <TextBlock>Роль</TextBlock>
-            <ComboBox Foreground="black" x:Name="PositionComboBox"></ComboBox>
+
+            <ComboBox Foreground="black" Background="Red" x:Name="PositionComboBox" TextBlock.Foreground="Red">
+            </ComboBox>
+          
         </StackPanel>
     </Grid>
 </Page>

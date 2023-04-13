@@ -23,25 +23,28 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn>
+                        <GridViewColumnHeader/>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel>
-                                    <Image Source="{Binding Path=imageSource}" Height="30" Width="30" Stretch="Fill"></Image>
-                                    <StackPanel>
-                                        <TextBlock />
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Path=imageSource}" Height="60" Width="60" Stretch="Fill"></Image>
+                                    <StackPanel Orientation="Vertical" Margin="5">
+                                        <TextBlock Margin="1" Text="{Binding Path=product_id, StringFormat=ID:   {0}}"/>
+                                        <TextBlock Margin="1" Text="{Binding Path=name_Les30, StringFormat=Name: {0}}"/>
+                                        <TextBlock Margin="1" Text="{Binding Path=count,      StringFormat=Count:{0}}"/>
+                                        <TextBlock Margin="1" Text="{Binding Path=price,      StringFormat=Price:{0}}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=product_id}">
-                        <GridViewColumnHeader>
-                            <TextBlock Width="auto" Height="auto">ID</TextBlock>
-                        </GridViewColumnHeader>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Редактировать" Background="{StaticResource ThemeColor1Resource}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Path=name_Les30}"></GridViewColumn>
-                    <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding Path=count}"></GridViewColumn>
-                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Path=price}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

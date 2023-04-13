@@ -4,7 +4,7 @@
     <!--Background and text colors-->
     <SolidColorBrush x:Key="BackDropColor" Color="#1A1A1A"/>
     <StaticResource ResourceKey="BackDropColor" x:Key="BackDropColorResource"/>
-    <SolidColorBrush x:Key="MainTextColor" Color="#E2E3E7"/>
+    <SolidColorBrush x:Key="MainTextColor" Color="Black"/>
     <StaticResource ResourceKey="MainTextColor" x:Key="MainTextColorResource"/>
     <SolidColorBrush x:Key="SecondTextColor" Color="#000000"/>
     <StaticResource ResourceKey="SecondTextColor" x:Key="SecondTextColorResource"/>
@@ -149,6 +149,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>-->
+        <Setter Property="Visibility" Value="Hidden"/>
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
         <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         
@@ -191,10 +192,10 @@
     </Style>
 
     <!--ComboBox style-->
-    <Style TargetType="ComboBox">
+    <!--<Style TargetType="ComboBox">
         <Setter Property="Background" Value="{StaticResource ThemeColor1Resource}"/>
         <Setter Property="Foreground" Value="{StaticResource SecondTextColorResource}"/>
-    </Style>
+    </Style>-->
 
 
     <Style TargetType="ComboBoxItem">
