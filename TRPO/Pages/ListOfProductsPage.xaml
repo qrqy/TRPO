@@ -41,7 +41,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать" Background="{StaticResource ThemeColor1Resource}"/>
+                                <Button Content="Редактировать"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
