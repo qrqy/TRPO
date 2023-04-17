@@ -14,7 +14,7 @@
     </Window.Resources>
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        <TextBlock x:Name="CurrentTime" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=HH:mm}" FontSize="18"></TextBlock>
-        <TextBlock x:Name="CurrentData" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,60,0" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=dd.MM}" FontSize="18"/>
+        <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="CurrentTime" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=HH:mm}" FontSize="18"></TextBlock>
+        <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="CurrentData" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,60,0" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=dd.MM}" FontSize="18"/>
     </Grid>
 </Window>

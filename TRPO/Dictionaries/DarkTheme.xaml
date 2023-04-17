@@ -227,7 +227,7 @@
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
     </Style>
     <!--TextBlock style-->
-    <Style TargetType="TextBlock">
+    <!--<Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource MainTextColorResource}"/>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

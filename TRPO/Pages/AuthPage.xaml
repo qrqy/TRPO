@@ -15,16 +15,16 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" MaxHeight="500" MinWidth="5" MaxWidth="305" MinHeight="5">
-            <TextBlock FontFamily="Regular" Margin="0,0,0,200" Grid.Column="1" FontSize="32" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Авторизация</TextBlock>
+            <TextBlock Foreground="{DynamicResource MainTextColorResource}" FontFamily="Regular" Margin="0,0,0,200" Grid.Column="1" FontSize="32" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Авторизация</TextBlock>
             <TextBox LostFocus="Login_LostFocus" GotFocus="Login_GotFocus" Margin="0,0,0,80" x:Name="Login" KeyDown="Login_KeyDown" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
             <PasswordBox GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"  Grid.Column="1" Margin="0,80,0,0" x:Name="Password" KeyDown="Password_KeyDown" FontSize="30" PasswordChar="*" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"></PasswordBox>
-            <TextBlock x:Name="LoginTextBox" Text="Введите логин" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,80"></TextBlock>
-            <TextBlock x:Name="PasswordTextBox" Text="Введите пароль" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Top" Margin="10,269,0,0"/>
+            <TextBlock Foreground="{DynamicResource MainTextColorResource}"  x:Name="LoginTextBox" Text="Введите логин" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,80"></TextBlock>
+            <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="PasswordTextBox" Text="Введите пароль" FontSize="32" IsHitTestVisible="False" IsEnabled="False" VerticalAlignment="Top" Margin="10,269,0,0"/>
             <TextBox Visibility="Collapsed" Margin="0,80,0,0" Name="PasswordUnmask" FontSize="30" BorderThickness="2" BorderBrush="Black" Width="300" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
 
-        <TextBlock Margin="0,200,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="auto" Width="auto" Grid.Row="1" Grid.Column="1" x:Name="ShowPassword" Text="Показать пароль" PreviewMouseDown="ShowPassword_PreviewMouseDown" PreviewMouseUp="ShowPassword_PreviewMouseUp" MouseLeave="ShowPassword_MouseLeave" FontSize="20"/>
+        <TextBlock Foreground="{DynamicResource MainTextColorResource}" Margin="0,200,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="auto" Width="auto" Grid.Row="1" Grid.Column="1" x:Name="ShowPassword" Text="Показать пароль" PreviewMouseDown="ShowPassword_PreviewMouseDown" PreviewMouseUp="ShowPassword_PreviewMouseUp" MouseLeave="ShowPassword_MouseLeave" FontSize="20"/>
         <Button  GotFocus="Login_Click" x:Name="LoginButton" Margin="0,300,0,0" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Click="Login_Click" FontSize="20">Войти</Button>
-        <TextBlock x:Name="RegTxt" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="0,400,0,0" Text="Регистрация" PreviewMouseUp="LoginButton_PreviewMouseDown"/>
+        <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="RegTxt" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Margin="0,400,0,0" Text="Регистрация" PreviewMouseUp="LoginButton_PreviewMouseDown"/>
     </Grid>
 </Page>

@@ -45,5 +45,22 @@ namespace TRPO
                 return string.Concat(Hash.ComputeHash(Encoding.UTF8.GetBytes(PasswordSring)));
             }
         }
+
+        public static int GetPositionIdFromPositionName(string PositionName)
+        {
+            foreach (var item in App.GetPosition)
+            {
+                if (item.position1 == PositionName)
+                {
+                    return item.position_id;
+                }
+            }
+            return 1;
+        }
+
+        public static bool CheckPassword(string Password)
+        {
+            return Password.Where(x=>x>='0'&&x<='9').Select(x=>x).Count()>=1&& Password.Where(x=>x>='A'&&x<='z').Select(x=>x).Count()>=1 &&Password.Where(x => (x<='z'&&x>='A')|(x>='0'&&x<='9')).Select(x=>x).Count()==Password.Length;
+        }
     }   
 }

@@ -38,6 +38,7 @@ namespace TRPO.Pages
             if (req.Count() > 0 && req.ToList().Contains(App.GetHashPasswordFromString(Password.Password.ToString())))
             {
                 mainWindow.MainFrame.Navigate(menuPage);
+                mainWindow.MainFrame.NavigationService.RemoveBackEntry();
             }
             else
             {

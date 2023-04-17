@@ -35,10 +35,15 @@ namespace TRPO.Pages
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(productsPage);
+            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
         }
 
         private void ReceiptOfProducts_Click(object sender, RoutedEventArgs e)
         {
+            mainWindow= (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(new DataPage());
+
+
             //Перевод всех паролей в бд в прикол на хеше
             /* 
             using (SkladBDEntities skladBD = new SkladBDEntities())
@@ -72,12 +77,14 @@ namespace TRPO.Pages
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(settingsPage);
+            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(regPage);
+            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
         }
     }
 }
