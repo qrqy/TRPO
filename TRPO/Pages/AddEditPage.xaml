@@ -1,0 +1,63 @@
+﻿<Page x:Class="TRPO.Pages.AddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TRPO.Pages" xmlns:trpo="clr-namespace:TRPO"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="960"
+      Title="AddEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="600"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="ID" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="IdTextBox" IsEnabled="False"/>
+            <TextBlock Text="Название" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="NameTextBox"/>
+            <TextBlock Text="Количество" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="CountTextBox"/>
+            <TextBlock Text="Цена" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="PriceTextBox"/>
+            <TextBlock Text="Длина" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="LengthTextBox"/>
+            <TextBlock Text="Ширина" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="WidthTextBox"/>
+            <TextBlock Text="Высота" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox x:Name="HeigthTextBox"/>
+            <TextBlock Text="Поставщик" Foreground="{DynamicResource MainTextColorResource}"/>
+            <ComboBox Name="SupplierComboBox" ItemsSource="{Binding Path=App.GetSupplier}"
+                      DisplayMemberPath="supplier1"
+                      SelectedValuePath="supplier1"
+                      SelectedValue="{Binding Path=App.GetSupplier}"
+                      SelectionChanged="SupplierComboBox_SelectionChanged"
+                      MaxDropDownHeight="100">
+            </ComboBox>
+            <TextBlock Text="Классификация" Foreground="{DynamicResource MainTextColorResource}"/>
+            <ComboBox Name="ClassificationComboBox" ItemsSource="{Binding Path=App.GetClassifications}"
+                      DisplayMemberPath="classification1"
+                      SelectedValuePath="classification1"
+                      SelectedValue="{Binding Path=App.GetClassifications}"
+                      SelectionChanged="ClassificationComboBox_SelectionChanged"
+                      MaxDropDownHeight="100">
+            </ComboBox>
+            <Grid Margin="15">
+                <Button Margin="15" Content="Сохранить" HorizontalAlignment="Left" Width="100" Background="Green"/>
+                <Button Margin="15" Content="Отменить" HorizontalAlignment="Right" Width="100" Background="Red"/>
+            </Grid>
+            
+        </StackPanel>
+
+
+
+    </Grid>
+</Page>

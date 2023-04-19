@@ -20,6 +20,7 @@
             <Button Margin="5" x:Name="ReceiptOfProducts" Click="ReceiptOfProducts_Click" Grid.Column="1" Height="auto" Width="auto" Padding="10" FontSize="18">Постпуление товаров</Button>
             <Button Margin="5" x:Name="Settings" Click="Settings_Click" Grid.Column="1" Height="auto" Width="auto" Padding="10" FontSize="18" Content="Настройки"/>
             <Button Margin="5" x:Name="Register" Click="Register_Click" Grid.Column="1" Height="auto" Width="auto" Padding="10" FontSize="18" Content="Регистрация пользователя"/>
+            <Button Margin="5" x:Name="Accounting" Click="Accounting_Click" Grid.Column="1" Height="auto" Width="auto" Padding="10" FontSize="18" Content="Учет товаров"/>
         </StackPanel>
         
     </Grid>

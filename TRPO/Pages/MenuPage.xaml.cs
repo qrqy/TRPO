@@ -86,5 +86,12 @@ namespace TRPO.Pages
             mainWindow.MainFrame.Navigate(regPage);
             mainWindow.MainFrame.NavigationService.RemoveBackEntry();
         }
+
+        private void Accounting_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow = (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(new PageAccountingOfGoods());
+            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
+        }
     }
 }
