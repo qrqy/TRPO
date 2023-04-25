@@ -34,6 +34,7 @@
             <ComboBox ToolTip="Выбирите роль/должность"  Foreground="{DynamicResource SecondTextColorResource}" x:Name="PositionComboBox">
             </ComboBox>
             <Button Content="Зарегистрировать" Margin="15" Click="Reg_Button_Click"/>
+            <Button Content="Назад" Margin="15" Click="LogOut_Button_Click"/>
         </StackPanel>
     </Grid>
 </Page>

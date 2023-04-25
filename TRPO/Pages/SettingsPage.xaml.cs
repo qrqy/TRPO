@@ -51,7 +51,7 @@ namespace TRPO.Pages
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (MainWindow) Application.Current.MainWindow;
-            mainWindow.MainFrame.Navigate(mainWindow.authPage.menuPage);
+            mainWindow.MainFrame.Navigate(App.menuPage);
         }
     }
 }

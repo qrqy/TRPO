@@ -26,16 +26,28 @@ namespace TRPO.Pages
         public MenuPage()
         {
             InitializeComponent();
+            if (App.listOfProductsPage == null)
+            {
+                App.listOfProductsPage = new ListOfProductsPage();
+            }
+            if (App.settingsPage==null)
+            {
+                App.settingsPage = new SettingsPage();
+            }
+            if (App.regPage==null)
+            {
+                App.regPage = new RegPage();
+            }
+            if (App.pageAccountingOfGoods==null)
+            {
+                App.pageAccountingOfGoods = new PageAccountingOfGoods();
+            }
         }
         public MainWindow mainWindow;
-        public ListOfProductsPage productsPage = new ListOfProductsPage();
-        public SettingsPage settingsPage = new SettingsPage();
-        public RegPage regPage = new RegPage();
         private void ListOfProducts_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
-            mainWindow.MainFrame.Navigate(productsPage);
-            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
+            mainWindow.MainFrame.Navigate(App.listOfProductsPage);
         }
 
         private void ReceiptOfProducts_Click(object sender, RoutedEventArgs e)
@@ -76,22 +88,26 @@ namespace TRPO.Pages
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
-            mainWindow.MainFrame.Navigate(settingsPage);
-            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
+            mainWindow.MainFrame.Navigate(App.settingsPage);
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
-            mainWindow.MainFrame.Navigate(regPage);
-            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
+            mainWindow.MainFrame.Navigate(App.regPage);
         }
 
         private void Accounting_Click(object sender, RoutedEventArgs e)
         {
             mainWindow = (MainWindow)App.Current.MainWindow;
-            mainWindow.MainFrame.Navigate(new PageAccountingOfGoods());
-            mainWindow.MainFrame.NavigationService.RemoveBackEntry();
+            mainWindow.MainFrame.Navigate(App.pageAccountingOfGoods);
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow = (MainWindow)App.Current.MainWindow;
+            App.authPage = new AuthPage();
+            mainWindow.MainFrame.Navigate(App.authPage);
         }
     }
 }

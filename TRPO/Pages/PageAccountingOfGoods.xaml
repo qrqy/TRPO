@@ -22,7 +22,8 @@
 
 
         <TextBox Grid.Row="0" Grid.Column="1" x:Name="SearchTextBox" VerticalAlignment="Top" Margin="15" TextChanged="SearchTextBox_TextChanged"/>
-        <DataGrid ItemsSource="{Binding Path=App.GetProduct}" ColumnWidth="*" Grid.Row="1" Grid.Column="1" x:Name="AccountingOfGoodsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" CanUserSortColumns="True" >
+        <Button Content="Добавить" Height="auto" Width="auto" Margin="5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Name="AddButton" Click="AddButton_Click"/>
+        <DataGrid ItemsSource="{Binding Path=App.GetProduct}" ColumnWidth="*" Grid.Row="1" Grid.Column="1" x:Name="AccountingOfGoodsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" CanUserSortColumns="True" SelectionChanged="AccountingOfGoodsDataGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -49,7 +50,7 @@
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Удалить" Background="Red"/>
+                            <Button Content="Удалить" Name="DataGridRowDeleteButton" Click="DataGridRowDeleteButton_Click" Background="Red"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -38,7 +38,6 @@
             <ComboBox Name="SupplierComboBox" ItemsSource="{Binding Path=App.GetSupplier}"
                       DisplayMemberPath="supplier1"
                       SelectedValuePath="supplier1"
-                      SelectedValue="{Binding Path=App.GetSupplier}"
                       SelectionChanged="SupplierComboBox_SelectionChanged"
                       MaxDropDownHeight="100">
             </ComboBox>
@@ -46,13 +45,12 @@
             <ComboBox Name="ClassificationComboBox" ItemsSource="{Binding Path=App.GetClassifications}"
                       DisplayMemberPath="classification1"
                       SelectedValuePath="classification1"
-                      SelectedValue="{Binding Path=App.GetClassifications}"
                       SelectionChanged="ClassificationComboBox_SelectionChanged"
                       MaxDropDownHeight="100">
             </ComboBox>
             <Grid Margin="15">
-                <Button Margin="15" Content="Сохранить" HorizontalAlignment="Left" Width="100" Background="Green"/>
-                <Button Margin="15" Content="Отменить" HorizontalAlignment="Right" Width="100" Background="Red"/>
+                <Button Click="Save_Click" x:Name="Save" Margin="15" Content="Сохранить" HorizontalAlignment="Left" Width="100" Background="Green"/>
+                <Button Click="Cancel_Click" x:Name="Cancel" Margin="15" Content="Отменить" HorizontalAlignment="Right" Width="100" Background="Red"/>
             </Grid>
             
         </StackPanel>

@@ -67,7 +67,16 @@ public partial class MainWindow : Window
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
-            MainFrame.Navigate(authPage);
+
+
+            if (App.authPage==null)
+            {
+                App.authPage = new AuthPage();
+            }
+
+
+
+            MainFrame.Navigate(App.authPage);
         }
         
         
@@ -78,13 +87,9 @@ public partial class MainWindow : Window
             else { e.Cancel = false; }
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void MainFrame_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if ( e.ChangedButton==MouseButton.XButton1 | e.ChangedButton==MouseButton.XButton2)
-            {
-                MainFrame.NavigationService.RemoveBackEntry();
-                return;
-            }
+            MainFrame.NavigationService.RemoveBackEntry();
         }
     }
 }

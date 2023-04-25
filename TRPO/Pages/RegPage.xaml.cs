@@ -46,6 +46,17 @@ namespace TRPO.Pages
                 MessageBox.Show("Обязательно заполните все поля");
                 return;
             }
+            if (App.GetUsers.Where(x => x.login == TextBoxLogin.Text).Select(x=>x).Count()>0)
+            {
+                MessageBox.Show("Пользователь с таким логином уже имеется");
+                return;
+            }
+            if (TextBoxFIO.Text.Split().Length!=3)
+            {
+                MessageBox.Show("Неверно введено ФИО");
+                return;
+            }
+
             if (!App.CheckPassword(TextBoxPassword.Text))
             {
                 MessageBox.Show("Пароль неверен");
@@ -67,16 +78,25 @@ namespace TRPO.Pages
             }
 
 
-            MessageBox.Show("Good");
+            MessageBox.Show("Зарегистрировано");
             
             SkladBDEntitie skladBDEntitie = new SkladBDEntitie();
             skladBDEntitie.staff.Add(new staff() { familia = TextBoxFIO.Text.Split()[0], imya = TextBoxFIO.Text.Split()[1], otchestvo = TextBoxFIO.Text.Split()[2], salary = int.Parse(TextBoxZP.Text), position_id = App.GetPositionIdFromPositionName(PositionComboBox.Text) }) ;
             skladBDEntitie.users.Add(new users() { familia = TextBoxFIO.Text.Split()[0], imya = TextBoxFIO.Text.Split()[1], otchestvo = TextBoxFIO.Text.Split()[2], login = TextBoxLogin.Text, password = App.GetHashPasswordFromString(TextBoxPassword.Text), role = PositionComboBox.Text});
+            skladBDEntitie.SaveChanges();
             App.GetStaff = skladBDEntitie.staff.ToList();
             App.GetUsers = skladBDEntitie.users.ToList();
-            skladBDEntitie.SaveChanges();
             skladBDEntitie.Dispose();
-            
+
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(App.menuPage);
+
+
+        }
+        private void LogOut_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(App.menuPage);
         }
     }
 }

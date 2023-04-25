@@ -8,6 +8,7 @@ using System.Windows;
 
 using System.Security.Cryptography;
 using System.Text;
+using TRPO.Pages;
 
 namespace TRPO
 {
@@ -22,6 +23,16 @@ namespace TRPO
         public static List<classification> GetClassifications { get; set; }
         public static List<position> GetPosition { get; set; }
         public static List<supplier> GetSupplier { get; set; }
+        
+        public static AddEditPage addEditPage { get; set; }
+        public static AuthPage authPage { get; set; }
+        public static DataPage dataPage { get; set; }
+        public static ListOfProductsPage listOfProductsPage { get; set; }
+        public static MenuPage menuPage { get; set; }
+        public static PageAccountingOfGoods pageAccountingOfGoods { get; set; }
+        public static RegPage regPage { get; set; }
+        public static SettingsPage settingsPage { get; set; }
+
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {

@@ -7,13 +7,12 @@
         mc:Ignorable="d"
         Title="Материальный склад" Height="720" Width="960"
         Closing="Window_Closing"
-        WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:CurrentTime x:Key="currentTime" UpdateInterval="00:00:00.100"/>
     </Window.Resources>
     <Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Frame DataContextChanged="MainFrame_DataContextChanged" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="CurrentTime" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=HH:mm}" FontSize="18"></TextBlock>
         <TextBlock Foreground="{DynamicResource MainTextColorResource}" x:Name="CurrentData" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,60,0" Text="{Binding Now, Source={StaticResource currentTime}, StringFormat=dd.MM}" FontSize="18"/>
     </Grid>
