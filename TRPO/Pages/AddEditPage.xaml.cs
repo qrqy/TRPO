@@ -64,12 +64,52 @@ namespace TRPO.Pages
             SupplierComboBox.SelectedItem = Product.supplier;
         }
 
+        public bool b()
+        {
+            if (string.IsNullOrEmpty(NameTextBox.Text) | string.IsNullOrEmpty(PriceTextBox.Text) | SupplierComboBox.SelectedIndex==-1 | ClassificationComboBox.SelectedIndex==-1)
+            {
+                MessageBox.Show("Заполните обязательные поля");
+                return true;
+            }
+            try
+            {
+                int.Parse(PriceTextBox.Text);
+                if (!string.IsNullOrEmpty(HeigthTextBox.Text))
+                {
+                    int.Parse(HeigthTextBox.Text);
+                }
+                if (!string.IsNullOrEmpty(LengthTextBox.Text))
+                {
+                    int.Parse(LengthTextBox.Text);
+                }
+                if (!string.IsNullOrEmpty(WidthTextBox.Text))
+                {
+                    int.Parse(WidthTextBox.Text);
+                }
+                if (!string.IsNullOrEmpty(CountTextBox.Text))
+                {
+                    int.Parse(CountTextBox.Text);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Неверный формат ввода");
+                return true;
+            }
+                
+            
+            return false;
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            if (b())
+            {
+                return;
+            }
             SkladBDEntitie skladBDEntitie = new SkladBDEntitie();
             if (IsAddPage)
             {
-                skladBDEntitie.product.Add(new product() { name = NameTextBox.Text, count = int.Parse(CountTextBox.Text), price = int.Parse(PriceTextBox.Text), length = int.Parse(LengthTextBox.Text), width = int.Parse(WidthTextBox.Text), height = int.Parse(HeigthTextBox.Text), classification_id=((classification)ClassificationComboBox.SelectedItem).classification_id, supplier_id = ((supplier)SupplierComboBox.SelectedItem).supplier_id });
+                skladBDEntitie.product.Add(new product() { name = NameTextBox.Text, count = string.IsNullOrEmpty(CountTextBox.Text)? new int() : int.Parse(CountTextBox.Text), price = int.Parse(PriceTextBox.Text), length = string.IsNullOrEmpty(LengthTextBox.Text)? new int() :int.Parse(LengthTextBox.Text), width =string.IsNullOrEmpty(WidthTextBox.Text)? new int() : int.Parse(WidthTextBox.Text), height = string.IsNullOrEmpty(HeigthTextBox.Text) ? new int() : int.Parse(HeigthTextBox.Text), classification_id=((classification)ClassificationComboBox.SelectedItem).classification_id, supplier_id = ((supplier)SupplierComboBox.SelectedItem).supplier_id });
                 skladBDEntitie.SaveChanges();
                 App.GetProduct = skladBDEntitie.product.ToList();
             }
@@ -93,13 +133,15 @@ namespace TRPO.Pages
             skladBDEntitie.SaveChanges();
             App.GetProduct = skladBDEntitie.product.ToList();
             skladBDEntitie.Dispose();
-            
-
+            App.pageAccountingOfGoods.AccountingOfGoodsDataGrid.ItemsSource = App.GetProduct;
+            MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(App.pageAccountingOfGoods);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(App.pageAccountingOfGoods);
         }
     }
 }

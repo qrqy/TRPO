@@ -21,20 +21,20 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="ID" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="IdTextBox" IsEnabled="False"/>
+            <TextBox ToolTip="ID задается автоматически" x:Name="IdTextBox" IsEnabled="False"/>
             <TextBlock Text="Название" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="NameTextBox"/>
+            <TextBox ToolTip="Является обязательным полем строкового типа" x:Name="NameTextBox"/>
             <TextBlock Text="Количество" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="CountTextBox"/>
+            <TextBox ToolTip="Является необязательным полем числового типа" x:Name="CountTextBox"/>
             <TextBlock Text="Цена" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="PriceTextBox"/>
+            <TextBox ToolTip="Является обязательным полем числового типа" x:Name="PriceTextBox"/>
             <TextBlock Text="Длина" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="LengthTextBox"/>
+            <TextBox ToolTip="Является необязательным полем числового типа" x:Name="LengthTextBox"/>
             <TextBlock Text="Ширина" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="WidthTextBox"/>
+            <TextBox ToolTip="Является необязательным полем числового типа" x:Name="WidthTextBox"/>
             <TextBlock Text="Высота" Foreground="{DynamicResource MainTextColorResource}"/>
-            <TextBox x:Name="HeigthTextBox"/>
-            <TextBlock Text="Поставщик" Foreground="{DynamicResource MainTextColorResource}"/>
+            <TextBox ToolTip="Является необязательным полем числового типа" x:Name="HeigthTextBox"/>
+            <TextBlock  Text="Поставщик" Foreground="{DynamicResource MainTextColorResource}"/>
             <ComboBox Name="SupplierComboBox" ItemsSource="{Binding Path=App.GetSupplier}"
                       DisplayMemberPath="supplier1"
                       SelectedValuePath="supplier1"
