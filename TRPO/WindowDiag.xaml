@@ -1,0 +1,25 @@
+﻿<Window x:Class="TRPO.WindowDiag"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TRPO"
+        xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+
+        mc:Ignorable="d"
+        Title="WindowDiag" Height="450" Width="800">
+    <Grid>
+        <Button Height="100" Width="100" Content="Excel" Name="ExcelButton" Click="ExcelButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Height="100" Width="100" Content="Word" Name="WordButton" Click="WordButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <WindowsFormsHost Margin="0,100,0,0" Height="auto" Width="auto">
+            <charts:Chart x:Name="Aboba">
+                <charts:Chart.Legends>
+                    <charts:Legend>
+
+                    </charts:Legend>
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

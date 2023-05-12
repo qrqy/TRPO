@@ -59,5 +59,11 @@ namespace TRPO.Pages
             MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
             mainWindow.MainFrame.Navigate(new AddEditPage());
         }
+
+        private void OtchButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDiag windowDiag = new WindowDiag();
+            windowDiag.Show();
+        }
     }
 }
