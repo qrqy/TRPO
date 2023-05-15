@@ -47,17 +47,28 @@ namespace TRPO
         private void ExcelButton_Click(object sender, RoutedEventArgs e)
         {
             var application = new Microsoft.Office.Interop.Excel.Application();
+            var classifications = App.GetClassifications;
             application.SheetsInNewWorkbook = App.GetClassifications.Count();
             excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
-            excel.Worksheet worksheet = application.Worksheets.Item[1];
-            worksheet.Name = "Отчет";
-            
-            for (int i = 1; i <= App.GetClassifications.Count(); i++)
+            for (int i = 0; i < classifications.Count; i++)
             {
-                //excel.Range objects = worksheet.Range(worksheet.Cells[1][1], worksheet.Cells[2][App.GetClassifications.Count()]);
-                worksheet.Cells[i][1] = App.GetClassifications[i].classification1;
-                worksheet.Cells[i][2] = App.GetProduct.Where(x => x.classification_id == App.GetClassifications[i].classification_id).Select(x=>x.count).Sum().ToString();
+                int startRowIndex = 1;
+                excel.Worksheet _worksheet = application.Worksheets.Item[i + 1];
+                _worksheet.Name = classifications[i].classification1;
+                _worksheet.Cells[1][startRowIndex] = "Номенклатура";
+                _worksheet.Cells[2][startRowIndex] = "Кол-во";
+                excel.Range col = _worksheet.Range[_worksheet.Cells[1][1], _worksheet.Cells[5][1]];
+                startRowIndex++;
+                var prod = App.GetProduct.Where(x => x.classification_id == classifications[i].classification_id).ToList();
+                foreach (var item in prod)
+                {
+                    _worksheet.Cells[1][startRowIndex] = item.name;
+                    _worksheet.Cells[2][startRowIndex] = item.count;
+                    startRowIndex++;
+                }
+                _worksheet.Columns.AutoFit();
             }
+            
             application.Visible = true;
         }
 
